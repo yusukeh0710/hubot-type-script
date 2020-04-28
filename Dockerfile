@@ -56,7 +56,16 @@ WORKDIR workspace
 RUN yo hubot --owner "hubot" --name "bot" --description "hubot" --adapter campfire
 RUN npm install --save @types/node @types/hubot
 
+COPY files/entrypoint.sh /
+COPY files/env.ini .
+COPY files/update.sh .
+COPY files/start.sh .
+COPY files/restart.sh .
+RUN rm scripts/example.coffee
+
 #RUN npm config delete proxy
 #RUN npm config delete https-proxy
 #ENV http_proxy ""
 #ENV https_proxy ""
+
+ENTRYPOINT ["/entrypoint.sh"]
