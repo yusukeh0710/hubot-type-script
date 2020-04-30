@@ -61,7 +61,8 @@ COPY files/env.ini .
 COPY files/update.sh .
 COPY files/start.sh .
 COPY files/restart.sh .
-RUN rm scripts/example.coffee
+COPY files/external-scripts.json .
+RUN rm hubot-scripts.json scripts/example.coffee
 
 #RUN npm config delete proxy
 #RUN npm config delete https-proxy

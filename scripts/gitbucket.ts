@@ -20,7 +20,7 @@ function CreateComment(robot: hubot.Robot, body: any): void {
 }
 
 module.exports = (robot: hubot.Robot): void => {
-    robot.router.post("/hubot/gitbucket", (req: any, res: any) => {
+    robot.router.post("/hubot/gitbucket", (req, res) => {
         // console.info(req.body);
         let body = req.body
         if (body) {
@@ -44,6 +44,6 @@ module.exports = (robot: hubot.Robot): void => {
                     break;
             }
         }
-        res.end("OK");
+        res.status(200).end("OK");
     });
 };
